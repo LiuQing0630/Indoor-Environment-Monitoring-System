@@ -1,0 +1,711 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="60">
+
+    <style>
+        #center {
+            MARGIN-RIGHT: 10px;
+            MARGIN-LEFT: 36px;
+            background: #FF;
+            width: 400px;
+            height: 369px;
+            vertical-align: middle;
+            overflow-y: auto;
+            overflow-x: auto;
+            word-spacing: 16px;
+            display: inline-block;
+        }
+
+       
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #e4ffdc;
+        }
+
+        .wrapper {
+            position: absolute;
+            width: 270px;
+            height: 100px;
+            top: calc(50% - 66px);
+            left: calc(50% + 396px);
+        }
+
+        .body {
+            position: absolute;
+            top: 15px;
+            left: 40px;
+            width: 200px;
+            height: 60px;
+            z-index: 1;
+            background: #32983e;
+            transform: skew(-25deg);
+        }
+
+            .body .eye {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                z-index: 1;
+                width: 12px;
+                height: 12px;
+                border-radius: 360px;
+                background: #006837;
+                animation: eye 2.5s 1s linear infinite;
+            }
+
+        @keyframes eye {
+            0% {
+                width: 12px;
+                height: 12px;
+                border-radius: 360px;
+            }
+
+            5% {
+                width: 12px;
+                height: 1px;
+                border-radius: 0px;
+            }
+
+            10% {
+                width: 12px;
+                height: 12px;
+                border-radius: 360px;
+            }
+        }
+
+        .body .back {
+            position: absolute;
+            left: -90px;
+            width: 220px;
+            height: 60px;
+            border-bottom-left-radius: 20px;
+            background: #32983e;
+            z-index: 0;
+            transform: skew(55deg);
+        }
+
+        .body .wing {
+            position: absolute;
+            top: -3px;
+            left: 25px;
+            width: 120px;
+            height: 60px;
+            background: rgba(131,195,63,0.8);
+            transform: rotate(3deg);
+            z-index: 4;
+            border-bottom-left-radius: 50px;
+        }
+
+            .body .wing:before {
+                content: '';
+                position: absolute;
+                left: -160px;
+                width: 205px;
+                height: 60px;
+                border-bottom-left-radius: 400px;
+                background: rgba(131,195,63,0.8);
+                transform: skew(55deg);
+            }
+
+        .body .shading {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: #39b549;
+            height: 50px;
+            width: 200px;
+            border-bottom-right-radius: 170px;
+            border-bottom-left-radius: 400px;
+        }
+
+        .shading_back {
+            position: absolute;
+            top: 0px;
+            left: -95px;
+            background: #39b549;
+            height: 50px;
+            width: 120px;
+            border-bottom-left-radius: 100px;
+            transform: skew(55deg);
+            z-index: 2;
+            overflow: hidden;
+        }
+
+            .shading_back .stripe1 {
+                position: absolute;
+                top: -50px;
+                left: -16px;
+                width: 4px;
+                height: 200px;
+                background: #016a37;
+                transform: skew(-55deg);
+            }
+
+            .shading_back .stripe2 {
+                position: absolute;
+                top: -50px;
+                left: 12px;
+                width: 6px;
+                height: 200px;
+                background: #016a37;
+                transform: skew(-50deg);
+            }
+
+            .shading_back .stripe3 {
+                position: absolute;
+                top: -50px;
+                left: 40px;
+                width: 9px;
+                height: 200px;
+                background: #016a37;
+                transform: skew(-45deg);
+            }
+
+            .shading_back .stripe4 {
+                position: absolute;
+                top: -50px;
+                left: 65px;
+                width: 9px;
+                height: 200px;
+                background: #016a37;
+                transform: skew(-40deg);
+            }
+
+        .leg {
+            position: absolute;
+            top: -10px;
+            left: -50px;
+            width: 200px;
+            height: 40px;
+            z-index: 3;
+            overflow: hidden;
+            transform: rotate(40deg);
+        }
+
+            .leg .main {
+                position: absolute;
+                top: 1px;
+                left: 5px;
+                background: #009245;
+                transform: skew(-30deg);
+                width: 200px;
+                height: 10px;
+            }
+
+            .leg .curve1 {
+                position: absolute;
+                top: 10px;
+                left: 245px;
+                background: #009245;
+                transform: skew(80deg);
+                border-bottom-left-radius: 80px;
+                width: 200px;
+                height: 20px;
+                border-bottom: 65px solid #007a3a;
+            }
+
+        .leg_part2 {
+            position: absolute;
+            top: -68px;
+            left: 18px;
+            width: 6px;
+            height: 175px;
+            transform: rotate(-25deg);
+            z-index: 6;
+            background: #009245;
+        }
+
+        .foot {
+            position: absolute;
+            z-index: 1;
+            left: 25px;
+            top: 71px;
+            width: 0;
+            height: 0;
+            transform: rotate(-102.5deg);
+            border-top: 45px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid #006635;
+        }
+
+            .foot:after {
+                content: '';
+                position: absolute;
+                right: -11px;
+                bottom: -11px;
+                height: 12px;
+                width: 13px;
+                background: #006635;
+                border-top-left-radius: 100px;
+                transform: rotate(102.5deg) skew(25deg);
+            }
+
+        .leg2 {
+            position: absolute;
+            top: -10px;
+            left: -70px;
+            width: 200px;
+            height: 40px;
+            overflow: hidden;
+            z-index: 0;
+            transform: rotate(38deg);
+        }
+
+            .leg2 .main {
+                position: absolute;
+                top: 1px;
+                left: 5px;
+                background: #39b549;
+                transform: skew(-30deg);
+                width: 200px;
+                height: 10px;
+            }
+
+            .leg2 .curve1 {
+                position: absolute;
+                top: 10px;
+                left: 245px;
+                background: #39b549;
+                transform: skew(80deg);
+                border-bottom-left-radius: 80px;
+                width: 200px;
+                height: 20px;
+                border-bottom: 65px solid #32983d;
+            }
+
+        .leg_part3 {
+            position: absolute;
+            top: -70px;
+            left: 4px;
+            width: 6px;
+            height: 175px;
+            transform: rotate(-31deg);
+            z-index: 0;
+            background: #39b549;
+        }
+
+        .small_leg {
+            position: absolute;
+            top: 45px;
+            left: 140px;
+            width: 9px;
+            height: 50px;
+            z-index: 7;
+            transform: rotate(-60deg);
+            background: #006837;
+        }
+
+        .small_leg2 {
+            transform: rotate(60deg) scaleX(-1);
+            left: 180px;
+        }
+
+        .small_leg:after {
+            content: '';
+            position: absolute;
+            left: -50px;
+            top: 0px;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #006837;
+        }
+
+        .a {
+            position: absolute;
+            top: -70px;
+            left: 24px;
+            width: 240px;
+            height: 100px;
+            border-radius: 360px;
+            background: #3cb64b;
+            z-index: 0;
+        }
+
+            .a:before {
+                content: '';
+                position: absolute;
+                top: 2px;
+                left: -3px;
+                width: 240px;
+                height: 100px;
+                border-radius: 360px;
+                background: #e4ffdc;
+                z-index: 0;
+            }
+
+        .b {
+            position: absolute;
+            top: -60px;
+            left: 20px;
+            width: 240px;
+            height: 90px;
+            border-radius: 360px;
+            background: #3cb64b;
+            z-index: 0;
+        }
+
+            .b:before {
+                content: '';
+                position: absolute;
+                top: 2px;
+                left: -3px;
+                width: 240px;
+                height: 90px;
+                border-radius: 360px;
+                background: #e4ffdc;
+                z-index: 0;
+            }
+
+        .circle {
+            position: absolute;
+            top: -100px;
+            left: -90px;
+            z-index: -1;
+            width: 400px;
+            height: 400px;
+            border-radius: 400px;
+            transform: rotateX(85deg);
+            background: rgba(0,0,0,0.2);
+        }
+
+        .credits {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            font-family: Helvetica, Arial;
+            color: #39b549;
+            background: rgba(131,195,63,0.4);
+            border-top-right-radius: 6px;
+            padding: 5px 10px 5px 10px;
+        }
+
+            .credits a {
+                text-decoration: none;
+                color: #006837;
+            }
+    </style>
+
+    <!-- 灯笼1 -->
+<div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">晴</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+</div>
+ 
+<!-- 灯笼2 -->
+<div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">刘</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+</div>
+ 
+ 
+<style type="text/css">
+.deng-box {
+    position: fixed;
+    top: -40px;
+    right: -20px;
+    z-index: 999;
+}
+ 
+.deng-box1 {
+    position: fixed;
+    top: -30px;
+    right: 10px;
+    z-index: 999;
+}
+ 
+.deng-box1 .deng {
+    position: relative;
+    width: 120px;
+    height: 90px;
+    margin: 50px;
+    background: #d8000f;
+    background: rgba(216, 0, 15, 0.8);
+    border-radius: 50% 50%;
+    -webkit-transform-origin: 50% -100px;
+    -webkit-animation: swing 5s infinite ease-in-out;
+    box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+}
+ 
+.deng {
+    position: relative;
+    width: 120px;
+    height: 90px;
+    margin: 50px;
+    background: #d8000f;
+    background: rgba(216, 0, 15, 0.8);
+    border-radius: 50% 50%;
+    -webkit-transform-origin: 50% -100px;
+    -webkit-animation: swing 3s infinite ease-in-out;
+    box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+}
+ 
+.deng-a {
+    width: 100px;
+    height: 90px;
+    background: #d8000f;
+    background: rgba(216, 0, 15, 0.1);
+    margin: 12px 8px 8px 8px;
+    border-radius: 50% 50%;
+    border: 2px solid #dc8f03;
+}
+ 
+.deng-b {
+    width: 45px;
+    height: 90px;
+    background: #d8000f;
+    background: rgba(216, 0, 15, 0.1);
+    margin: -4px 8px 8px 26px;
+    border-radius: 50% 50%;
+    border: 2px solid #dc8f03;
+}
+ 
+.xian {
+    position: absolute;
+    top: -20px;
+    left: 60px;
+    width: 2px;
+    height: 20px;
+    background: #dc8f03;
+}
+ 
+.shui-a {
+    position: relative;
+    width: 5px;
+    height: 20px;
+    margin: -5px 0 0 59px;
+    -webkit-animation: swing 4s infinite ease-in-out;
+    -webkit-transform-origin: 50% -45px;
+    background: #ffa500;
+    border-radius: 0 0 5px 5px;
+}
+ 
+.shui-b {
+    position: absolute;
+    top: 14px;
+    left: -2px;
+    width: 10px;
+    height: 10px;
+    background: #dc8f03;
+    border-radius: 50%;
+}
+ 
+.shui-c {
+    position: absolute;
+    top: 18px;
+    left: -2px;
+    width: 10px;
+    height: 35px;
+    background: #ffa500;
+    border-radius: 0 0 0 5px;
+}
+ 
+.deng:before {
+    position: absolute;
+    top: -7px;
+    left: 29px;
+    height: 12px;
+    width: 60px;
+    content: " ";
+    display: block;
+    z-index: 999;
+    border-radius: 5px 5px 0 0;
+    border: solid 1px #dc8f03;
+    background: #ffa500;
+    background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+}
+ 
+.deng:after {
+    position: absolute;
+    bottom: -7px;
+    left: 10px;
+    height: 12px;
+    width: 60px;
+    content: " ";
+    display: block;
+    margin-left: 20px;
+    border-radius: 0 0 5px 5px;
+    border: solid 1px #dc8f03;
+    background: #ffa500;
+    background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+}
+ 
+.deng-t {
+    font-family: 华文行楷,Arial,Lucida Grande,Tahoma,sans-serif;
+    font-size: 3.2rem;
+    color: #dc8f03;
+    font-weight: bold;
+    line-height: 85px;
+    text-align: center;
+}
+ 
+.night .deng-t, 
+.night .deng-box, 
+.night .deng-box1 {
+    background: transparent !important;
+}
+ 
+@-moz-keyframes swing {
+    0% {
+        -moz-transform: rotate(-10deg)
+    }
+ 
+    50% {
+        -moz-transform: rotate(10deg)
+    }
+ 
+    100% {
+        -moz-transform: rotate(-10deg)
+    }
+}
+ 
+@-webkit-keyframes swing {
+    0% {
+        -webkit-transform: rotate(-10deg)
+    }
+ 
+    50% {
+        -webkit-transform: rotate(10deg)
+    }
+ 
+    100% {
+        -webkit-transform: rotate(-10deg)
+    }
+}
+</style>
+
+    <title>室内环境监测系统</title>
+    <h1 align="center">室内环境监测系统</h1>
+    <h2 align="center">当前室内温度：{{temp}} °C   湿度：{{hum}} %rh </h2>
+    <h2 align="center"><a href="/">刷新</a>历史数据列表：</h2>
+    <h3                                                  </h3>
+
+    <div id="center" style="border:2px solid #FFFFFF">
+        温度        记录时间<br>
+        {% for i in data[::-1] %}
+        {{i[2]}}        {{i[3]}} <br>
+        {% endfor %}
+    </div>
+
+    <div id="center" style="border:2px solid #FFFFFF">
+        湿度        记录时间<br>
+        {% for i in data1[::-1] %}
+        {{i[2]}}        {{i[3]}} <br>
+        {% endfor %}
+    </div>
+
+    <script src="js/prefixfree.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="body">
+            <div class="back"></div>
+            <div class="shading">
+                <div class="shading_back">
+                    <div class="stripe1"></div>
+                    <div class="stripe2"></div>
+                    <div class="stripe3"></div>
+                    <div class="stripe4"></div>
+                </div>
+            </div>
+            <div class="eye"></div>
+            <div class="wing"></div>
+        </div>
+        <div class="leg">
+            <div class="curve1"></div>
+            <div class="main"></div>
+        </div>
+        <div class="leg_part2"></div>
+        <div class="foot"></div>
+        <div class="leg2">
+            <div class="curve1"></div>
+            <div class="main"></div>
+        </div>
+        <div class="leg_part3"></div>
+        <div class="small_leg"></div>
+        <div class="small_leg small_leg2"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div style="text-align:center;clear:both">
+        <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+        <script src="/follow.js" type="text/javascript"></script>
+    </div>
+
+    <script src='js/jquery.js'></script>
+
+    <canvas id="canvas"></canvas>
+    <script>
+        const WIDTH = document.documentElement.clientWidth;
+        const HEIGHT = document.documentElement.clientHeight;
+
+        let ctx = document.getElementById('canvas'),
+            content = ctx.getContext('2d'),
+            round = [],
+            initRoundPopulation = 80;
+        ctx.width = WIDTH;
+        ctx.height = HEIGHT;
+
+        function box(index, x, y) {
+            this.index = index;
+            this.x = x;
+            this.y = y;
+            this.r = Math.random() * 5 + 1;
+            var alpha = (Math.floor(Math.random() * 10) + 1) / 10 / 2;
+            this.color = "rgba(102,204,204," + alpha + ")";
+        }
+
+        box.prototype.draw = function () {
+            content.fillStyle = this.color;
+            content.shadowBlur = this.r * 2;
+            content.beginPath();
+            content.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+            content.closePath();
+            content.fill();
+        };
+
+        function animate() {
+            content.clearRect(0, 0, WIDTH, HEIGHT);
+            for (var i in round) {
+                round[i].move();
+            }
+            requestAnimationFrame(animate)
+        }
+
+        box.prototype.move = function () {
+            this.y -= 0.30;   //  上升移动速度
+            if (this.y <= -10) {
+                this.y = HEIGHT + 10;
+            }
+            this.draw();
+        };
+
+        function init() {
+            for (var i = 0; i < initRoundPopulation; i++) {
+                round[i] = new box(i, Math.random() * WIDTH, Math.random() * HEIGHT);
+                round[i].draw();
+            }
+            animate();
+        }
+        init();
+
+    </script>
+</body>
+</html>
