@@ -31,7 +31,8 @@ https://wiki.dfrobot.com.cn/_SKU_DFR0029_%E6%95%B0%E5%AD%97%E5%A4%A7%E6%8C%89%E9
 #### 软件下载
 1.Mind+  http://mindplus.cc/download.html                                                                                                                          
 2.Python IDLE https://www.python.org/downloads/                                                                                                                         
-3.Google Chrome https://www.google.cn/intl/zh-CN/chrome/
+3.Google Chrome https://www.google.cn/intl/zh-CN/chrome/                                                                                                        
+p.s.Python必需安装flask库，如需使用画图功能请额外安装matplotlib与pandas库
 
 #### 使用教程
 硬件接入
