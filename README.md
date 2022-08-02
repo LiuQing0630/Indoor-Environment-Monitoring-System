@@ -29,8 +29,8 @@ https://wiki.dfrobot.com.cn/_SKU_DFR0029_%E6%95%B0%E5%AD%97%E5%A4%A7%E6%8C%89%E9
 淘宝:https://m.tb.cn/h.f1eb3R2?sm=b3a63a
 
 #### 软件下载
-1.Mind+  http://mindplus.cc/download.html
-2.Python IDLE https://www.python.org/downloads/
+1.Mind+  http://mindplus.cc/download.html                                                                                                                          
+2.Python IDLE https://www.python.org/downloads/                                                                                                                         
 3.Google Chrome https://www.google.cn/intl/zh-CN/chrome/
 
 #### 使用教程
